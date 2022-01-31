@@ -35,3 +35,4 @@ Era pra ser utlilizado Nunjucks, porém o foco maior foi na funcionalidade do pr
 * Colocar edição de dados
 * Utlização de Framework
 * Mascara nos inputs
+* Layout Dark
