@@ -4,6 +4,8 @@ A aplicação é uma plataforma de cadastro de usuário, sendo possível listar 
 
 Para armazenar os dados preenchido no formulário, foi utilizado o LocalStorage, uma API própria do navegador que salva os dados mesmo se a página for carregada.
 
+O app tem o público alvo para todas as idades, por esse motivo foi colocado apenas informações necessárias, com uma tela limpa e sem muitas animações.
+
 
 ## Tecnologias utilizadas
  * HTML
@@ -19,11 +21,14 @@ Para armazenar os dados preenchido no formulário, foi utilizado o LocalStorage,
 ## Curiosidades sobre o Projeto
 Nunca tinha criado projeto com LocalStorage, segue abaixo referência para desenvolver o projeto:
 
+Era pra ser utlilizado Nunjucks, porém o foco maior foi na funcionalidade do projeto.
+
+A cor azul utilizada é a mesma da logo: #005995
+
 [Programador Espartano](https://www.youtube.com/watch?v=nXpjlivhvUk)
 
 [Roger Melo](https://youtu.be/xarRciYWT5Q)
 
-Era pra ser utlilizado Nunjucks, porém o foco maior foi na funcionalidade do projeto.
 
 ## O que foi aprendido
 * ForEach para pegar todos os elementos
