@@ -1,4 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+:root {
+  --hue-color: 204;
+  --first-color: hsl(var(--hue-color), 69%, 61%);
+  --first-color-second: hsl(var(--hue-color), 69%, 61%);
+  --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+  --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+  --title-color: hsl(var(--hue-color), 8%, 15%);
+  --text-color: hsl(var(--hue-color), 8%, 45%);
+  --text-color-light: hsl(var(--hue-color), 8%, 65%);
+  --input-color: hsl(var(--hue-color), 70%, 96%);
+  --body-color: hsl(var(--hue-color), 60%, 99%);
+  --gray: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+  --first-color-second: hsl(var(--hue-color), 30%, 8%);
+  --title-color: hsl(var(--hue-color), 8%, 95%);
+  --text-color: hsl(var(--hue-color), 8%, 75%);
+  --input-color: hsl(var(--hue-color), 29%, 16%);
+  --body-color: hsl(var(--hue-color), 28%, 12%);
+  --gray: rgba(250, 250, 250, 0.5);
+}
+
 .show {
   display: -ms-grid !important;
   display: grid !important;
@@ -14,12 +37,13 @@
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
+  max-width: 1140px;
 }
 
 #btnNext {
-  background: #005995;
-  color: #f8f9fa;
-  border: solid 2px #005995;
+  background: var(--first-color);
+  color: #FFF;
+  border: solid 2px var(--first-color);
   padding: 12px 25px;
   font-weight: 600;
   cursor: pointer;
@@ -28,18 +52,23 @@
   font-size: 1rem;
 }
 
+#btnNext:hover {
+  background: transparent;
+  color: var(--first-color);
+}
+
 #btnNext:disabled {
   background: #6c757d;
   border-color: #6c757d;
-  color: #f8f9fa;
+  color: #FFF;
   opacity: 0.65;
   cursor: default;
 }
 
 #btnPrev {
   background: transparent;
-  color: #005995;
-  border: solid 2px #005995;
+  color: var(--first-color);
+  border: solid 2px var(--first-color);
   padding: 12px 25px;
   font-weight: 600;
   cursor: pointer;
@@ -48,22 +77,32 @@
   font-size: 1rem;
 }
 
+#btnPrev:hover {
+  background: var(--first-color);
+  color: #FFF;
+}
+
 #enviar {
-  background: #005995;
-  color: #f8f9fa;
-  border: solid 2px #005995;
+  background: var(--first-color);
+  color: #FFF;
+  border: solid 2px var(--first-color);
   padding: 12px 25px;
   font-weight: 600;
   cursor: pointer;
   -webkit-transition: .3s ease;
   transition: .3s ease;
   font-size: 1rem;
+}
+
+#enviar:hover {
+  background: transparent;
+  color: var(--first-color);
 }
 
 #enviar:disabled {
   background: #6c757d;
   border-color: #6c757d;
-  color: #f8f9fa;
+  color: #FFF;
   opacity: 0.65;
   cursor: default;
 }
@@ -88,34 +127,67 @@ body {
           align-items: center;
   height: auto;
   font-family: 'Roboto', sans-serif;
+  background: var(--body-color);
+  color: var(--text-color);
 }
 
 body nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #005995;
+  background: transparent;
   z-index: 9;
+  border-bottom: 2px solid var(--gray);
 }
 
-body nav ul {
+body nav .navbar_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body nav .navbar_content .logo h1 {
+  color: var(--first-color);
+}
+
+body nav .navbar_content ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   list-style: none;
   padding: 0;
 }
 
-body nav ul li {
+body nav .navbar_content ul li {
   padding: 1.5rem;
 }
 
-body nav ul li a {
+body nav .navbar_content ul li a {
   text-decoration: none;
-  color: #f8f9fa;
+  color: var(--title-color);
+}
+
+body nav .navbar_content ul li a:hover {
+  color: var(--first-color);
+}
+
+body nav .navbar_content .btnDark {
+  cursor: pointer;
+}
+
+body nav .navbar_content .btnDark i {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+body nav .navbar_content .btnDark i:hover {
+  color: var(--first-color);
 }
 
 body section {
@@ -128,6 +200,7 @@ body section h1 {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   text-align: center;
+  color: var(--title-color);
 }
 
 body section p {
@@ -146,7 +219,7 @@ body section .indicador {
 }
 
 body section .indicador p {
-  color: #005995;
+  color: var(--first-color);
   width: 100%;
   text-align: left;
   font-weight: 600;
@@ -156,7 +229,7 @@ body section .indicador p::after {
   content: '';
   height: 4px;
   width: 0%;
-  background: #005995;
+  background: var(--first-color);
   display: block;
   margin-top: 0.5rem;
   -webkit-transition: .3s ease;
@@ -172,10 +245,10 @@ body section form {
   display: grid;
   margin-top: 3rem;
   gap: 2rem;
-  border: solid 1px rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--gray);
   padding: 2rem;
   border-radius: 5px;
-  background: #FFF;
+  background: var(--body-color);
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
           box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
@@ -225,37 +298,44 @@ body section form .form_groups .form_group {
 body section form .form_groups .form_group label {
   margin-bottom: 0.5rem;
   display: block;
+  color: var(--title-color);
 }
 
 body section form .form_groups .form_group input {
   display: block;
-  border: solid 1px rgba(0, 0, 0, 0.1);
+  border: solid 1px var(--gray);
   font-size: 1.3rem;
   padding: 1rem;
   border-radius: 5px;
   width: 100%;
+  background: var(--input-color);
+  color: var(--text-color);
 }
 
 body section form .form_groups .form_group input::-webkit-input-placeholder {
   opacity: 0.5;
+  color: var(--title-color);
 }
 
 body section form .form_groups .form_group input:-ms-input-placeholder {
   opacity: 0.5;
+  color: var(--title-color);
 }
 
 body section form .form_groups .form_group input::-ms-input-placeholder {
   opacity: 0.5;
+  color: var(--title-color);
 }
 
 body section form .form_groups .form_group input::placeholder {
   opacity: 0.5;
+  color: var(--title-color);
 }
 
 body section form button {
-  background: #005995;
-  color: #f8f9fa;
-  border: solid 2px #005995;
+  background: var(--first-color);
+  color: #FFF;
+  border: solid 2px var(--first-color);
   padding: 12px 25px;
   font-weight: 600;
   cursor: pointer;
@@ -264,8 +344,8 @@ body section form button {
 }
 
 body section form button:hover {
-  background: #005995;
-  color: #f8f9fa;
+  background: var(--first-color);
+  color: #FFF;
 }
 
 body section .alertRed {
@@ -366,12 +446,13 @@ body section.tabela table tbody {
 body section.tabela table tbody tr {
   display: block;
   width: 100%;
-  padding: 2rem 0;
+  padding: 1rem;
   margin: 2rem 0;
+  border: solid 1px var(--gray);
 }
 
 body section.tabela table tbody tr:nth-of-type(even) {
-  background: #f3f3f3;
+  background: var(--input-color);
 }
 
 body section.tabela table tbody tr td {
@@ -382,6 +463,7 @@ body section.tabela table tbody tr td {
   text-align: right;
   position: relative;
   margin: 1rem 0;
+  border-bottom: solid 1px var(--gray);
 }
 
 body section.tabela table tbody tr td:nth-child(4) {
@@ -402,6 +484,7 @@ body section.tabela table tbody tr td #delete {
 
 body section.tabela table tbody tr td #delete i {
   font-size: 1.5rem;
+  color: var(--title-color);
 }
 
 @media screen and (min-width: 1024px) {
@@ -468,7 +551,7 @@ body section.tabela table tbody tr td #delete i {
     display: table-header-group;
   }
   section.tabela .container table thead tr {
-    background: #005995;
+    background: var(--first-color);
     color: #FFF;
     text-align: left;
     font-weight: bold;
@@ -484,10 +567,10 @@ body section.tabela table tbody tr td #delete i {
     border-bottom: 1px solid #dddddd;
   }
   section.tabela .container table tbody tr:nth-of-type(even) {
-    background: #f3f3f3;
+    background: var(--input-color);
   }
   section.tabela .container table tbody tr:last-of-type {
-    border-bottom: 2px solid #005995;
+    border-bottom: 2px solid var(--first-color);
   }
   section.tabela .container table tbody tr td {
     display: table-cell;
@@ -495,6 +578,7 @@ body section.tabela table tbody tr td #delete i {
     position: initial;
     text-align: left;
     width: auto;
+    border: none;
   }
   section.tabela .container table tbody tr td:before {
     display: none;

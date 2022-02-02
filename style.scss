@@ -1,10 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-$primary: #005995;
-$secondary: #ffcd00;
-$white: #f8f9fa;
-$dark: #1a1a1a;
-$gray: rgba(0, 0, 0, 0.1);
+:root{
+
+    --hue-color: 204;
+
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 53%);
+    --first-color-lighter: hsl(var(--hue-color), 92%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 8%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --input-color: hsl(var(--hue-color), 70%, 96%);
+    --body-color: hsl(var(--hue-color), 60%, 99%);
+
+    --gray: rgba(0, 0, 0, 0.1);
+}
+
+body.dark{
+    --first-color-second: hsl(var(--hue-color), 30%, 8%);
+    --title-color: hsl(var(--hue-color), 8%, 95%);
+    --text-color: hsl(var(--hue-color), 8%, 75%);
+    --input-color: hsl(var(--hue-color), 29%, 16%);
+    --body-color: hsl(var(--hue-color), 28%, 12%);
+    --gray: rgba(250, 250, 250, 0.5);
+}
 
 .show{
     display: grid !important;
@@ -20,21 +40,27 @@ $gray: rgba(0, 0, 0, 0.1);
     width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+    max-width: 1140px;
 }
 #btnNext{
-    background: $primary;
-    color: $white;
-    border: solid 2px $primary;
+    background: var(--first-color);
+    color: #FFF;
+    border: solid 2px var(--first-color);
     padding: 12px 25px;
     font-weight: 600;
     cursor: pointer;
     transition: .3s ease;
     font-size: 1rem;
 
+    &:hover{
+        background: transparent;
+        color: var(--first-color);
+    }
+
     &:disabled{
         background: #6c757d;
         border-color: #6c757d;
-        color: $white;
+        color: #FFF;
         opacity: 0.65;
         cursor: default;
     }
@@ -42,28 +68,38 @@ $gray: rgba(0, 0, 0, 0.1);
 }
 #btnPrev{
     background: transparent;
-    color: $primary;
-    border: solid 2px $primary;
-    padding: 12px 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: .3s ease;
-    font-size: 1rem;
-}
-#enviar{
-    background: $primary;
-    color: $white;
-    border: solid 2px $primary;
+    color: var(--first-color);
+    border: solid 2px var(--first-color);
     padding: 12px 25px;
     font-weight: 600;
     cursor: pointer;
     transition: .3s ease;
     font-size: 1rem;
 
+    &:hover{
+        background: var(--first-color);
+        color: #FFF;
+    }
+}
+#enviar{
+    background: var(--first-color);
+    color: #FFF;
+    border: solid 2px var(--first-color);
+    padding: 12px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+    font-size: 1rem;
+
+    &:hover{
+        background: transparent;
+        color: var(--first-color);
+    }
+
     &:disabled{
         background: #6c757d;
         border-color: #6c757d;
-        color: $white;
+        color: #FFF;
         opacity: 0.65;
         cursor: default;
     }
@@ -83,25 +119,57 @@ body{
     align-items: center;
     height: auto;
     font-family: 'Roboto', sans-serif;
+    background: var(--body-color);
+    color: var(--text-color);
 
     nav{
         position: fixed;
         top: 0;
         width: 100%;
-        background: $primary;
+        background: transparent;
         z-index: 9;
+        border-bottom: 2px solid var(--gray);
 
-        ul{
+        .navbar_content{
             display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
 
-            li{
-                padding: 1.5rem;
-                a{
-                    text-decoration: none;
-                    color: $white;
+            .logo{
+                h1{
+                    color: var(--first-color);
+                }
+            }
+
+            ul{
+                display: flex;
+                list-style: none;
+                padding: 0;
+    
+                li{
+                    padding: 1.5rem;
+                    a{
+                        text-decoration: none;
+                        color: var(--title-color);
+
+                        &:hover{
+                            color: var(--first-color);
+                        }
+
+                    }
+                }
+            }
+
+            .btnDark{
+                cursor: pointer;
+
+                i{
+                    font-size: 1.3rem;
+                    font-weight: bold;
+
+                    &:hover{
+                        color: var(--first-color);
+                    }
                 }
             }
         }
@@ -115,6 +183,7 @@ body{
             font-size: 2rem;
             margin-bottom: 0.5rem;
             text-align: center;
+            color: var(--title-color);
         }
         p{
             text-align: center;
@@ -127,7 +196,7 @@ body{
             margin: 3rem 0;
     
             p{
-                color: $primary;
+                color: var(--first-color);
                 width: 100%;
                 text-align: left;
                 font-weight: 600;
@@ -136,7 +205,7 @@ body{
                     content: '';
                     height: 4px;
                     width: 0%;
-                    background: $primary;
+                    background: var(--first-color);
                     display: block;
                     margin-top: 0.5rem;
                     transition: .3s ease;
@@ -153,10 +222,10 @@ body{
             display: grid;
             margin-top: 3rem;
             gap: 2rem;
-            border: solid 1px $gray;
+            border: solid 1px var(--gray);
             padding: 2rem;
             border-radius: 5px;
-            background: #FFF;
+            background: var(--body-color);
             box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
             
             .page_one{
@@ -192,17 +261,21 @@ body{
                     label{
                         margin-bottom: 0.5rem;
                         display: block;
+                        color: var(--title-color);
                     }
                     input{
                         display: block;
-                        border: solid 1px $gray;
+                        border: solid 1px var(--gray);
                         font-size: 1.3rem;
                         padding: 1rem;
                         border-radius: 5px;
                         width: 100%;
+                        background: var(--input-color);
+                        color: var(--text-color);
     
                         &::placeholder{
                             opacity: 0.5;
+                            color: var(--title-color);
                         }
                     }
     
@@ -210,17 +283,17 @@ body{
             }
     
             button{
-                background: $primary;
-                color: $white;
-                border: solid 2px $primary;
+                background: var(--first-color);
+                color: #FFF;
+                border: solid 2px var(--first-color);
                 padding: 12px 25px;
                 font-weight: 600;
                 cursor: pointer;
                 transition: .3s ease;
 
                 &:hover{
-                    background: $primary;
-                    color: $white;
+                    background: var(--first-color);
+                    color: #FFF;
                 }
                 
             }
@@ -310,11 +383,12 @@ body{
                 tr{
                     display: block;
                     width: 100%;
-                    padding: 2rem 0;
+                    padding: 1rem;
                     margin: 2rem 0;
+                    border: solid 1px var(--gray);
 
                     &:nth-of-type(even){
-                        background: #f3f3f3;
+                        background: var(--input-color);
                     }
     
                     td{
@@ -325,6 +399,7 @@ body{
                         text-align: right;
                         position: relative;
                         margin: 1rem 0;
+                        border-bottom: solid 1px var(--gray);
     
                         &:nth-child(4){
                             word-break: break-all;
@@ -342,6 +417,7 @@ body{
                             margin: .5rem;
                             i{
                                 font-size: 1.5rem;
+                                color: var(--title-color);
                             }
                         }
                     }
@@ -355,9 +431,7 @@ body{
 }
 
 @media screen and (min-width: 1024px){
-    body{
-        // height: 100vh;
-    }
+    
     section{
 
         .container{
@@ -424,7 +498,7 @@ body{
                 thead{
                     display: table-header-group;
                     tr{
-                        background: $primary;
+                        background: var(--first-color);
                         color: #FFF;
                         text-align: left;
                         font-weight: bold;
@@ -441,11 +515,11 @@ body{
                         border-bottom: 1px solid #dddddd;
         
                         &:nth-of-type(even){
-                            background: #f3f3f3;
+                            background: var(--input-color);
                         }
         
                         &:last-of-type{
-                            border-bottom: 2px solid $primary;
+                            border-bottom: 2px solid var(--first-color);
                         }
         
                         td{
@@ -454,6 +528,7 @@ body{
                             position: initial;
                             text-align: left;
                             width: auto;
+                            border: none;
         
                             &:before{
                                 display: none;

@@ -78,6 +78,7 @@ function consultarCep(){
 
 consultarCep()
 
+const body = document.querySelector('body')
 const tbody = document.querySelector('#tbody')
 const alertCampos = document.querySelector('#alertCampos')
 const alertCadastro = document.querySelector('#alertCadastro')
@@ -308,4 +309,47 @@ inputCep.addEventListener('blur', () => {
         enviarBtn.removeAttribute('disabled', '')
     }
      
+})
+
+//Fixed navbar
+const navbar = document.querySelector('nav')
+window.addEventListener('scroll', () => {
+    navbar.style.backgroundColor = 'var(--body-color)'
+})
+
+//dark
+let darkMode = localStorage.getItem('darkMode')
+const btnDark = document.querySelector('.btnDark')
+
+
+const enableDarkTheme = () =>{
+    body.classList.add("dark")
+    localStorage.setItem("darkMode", "enabled")
+}
+
+const disableDarkTheme = () =>{
+    body.classList.remove("dark")
+    localStorage.setItem("darkMode", null)
+}
+
+
+btnDark.addEventListener('click', () => {
+
+    let i = document.querySelector('.btnDark i')
+
+    
+
+    darkMode = localStorage.getItem("darkMode")
+    if(darkMode !== "enabled"){
+        enableDarkTheme()
+
+        i.classList.remove("fa-moon-o")
+        i.classList.add("fa-sun-o")
+    }
+    else{
+        disableDarkTheme()
+
+        i.classList.remove("fa-sun-o")
+        i.classList.add("fa-moon-o")
+    }
 })
