@@ -23,8 +23,6 @@ Nunca tinha criado projeto com LocalStorage, segue abaixo referência para desen
 
 Era pra ser utlilizado Nunjucks, porém o foco maior foi na funcionalidade do projeto.
 
-A cor azul utilizada é a mesma da logo: #005995
-
 [Programador Espartano](https://www.youtube.com/watch?v=nXpjlivhvUk)
 
 [Roger Melo](https://youtu.be/xarRciYWT5Q)
@@ -37,7 +35,7 @@ A cor azul utilizada é a mesma da logo: #005995
 * Submit sem a página dar refresh
 
 ## A ser feito
-* Colocar edição de dados
-* Utlização de Framework
-* Mascara nos inputs
-* Layout Dark
+- [ ] Colocar edição de dados
+- [ ] Utlização de Framework - ReactJs
+- [ ] Mascara nos inputs
+- [x] Dark Theme
